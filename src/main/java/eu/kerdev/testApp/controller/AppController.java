@@ -15,7 +15,7 @@ public class AppController {
     }
 
     @RequestMapping(value = { "/test"}, method = RequestMethod.GET)
-    public String productsPage(ModelMap model) {
+    public String testPage(ModelMap model) {
         return "test";
     }
 }
