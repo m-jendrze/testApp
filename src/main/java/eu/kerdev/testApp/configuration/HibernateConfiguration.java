@@ -32,7 +32,7 @@ public class HibernateConfiguration {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[] { "eu.kerdev.testApp.domain.model" });
+        sessionFactory.setPackagesToScan("eu.kerdev.testApp.model.entities");
         sessionFactory.setHibernateProperties(hibernateProperties());
         return sessionFactory;
     }

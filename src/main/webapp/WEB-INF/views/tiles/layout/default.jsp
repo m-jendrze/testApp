@@ -8,7 +8,13 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title><tiles:getAsString name="title" /></title>
 	    <link rel="shortcut icon" href="<c:url value='/static/favicon.ico' />" />
-        <!--<link href="<c:url value='/static/css/bootstrap.css' />"  rel="stylesheet"></link>-->
+        <link href="<c:url value='/static/css/jquery-ui.min.css' />" rel="stylesheet" type="text/css" />
+        <link href="<c:url value='/static/js/jquery/jtable/themes/metro/darkorange/jtable.min.css' />" rel="stylesheet" type="text/css" />
+
+        <script src="<c:url value='/static/js/jquery/jquery.min.js' />" type="text/javascript"></script>
+        <script src="<c:url value='/static/js/jquery/jquery-ui.min.js' />" type="text/javascript"></script>
+        <script src="<c:url value='/static/js/jquery/jtable/jquery.jtable.min.js' />" type="text/javascript"></script>
+
     </head>
     <body>
             <header id="header">

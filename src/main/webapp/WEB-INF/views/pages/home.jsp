@@ -1,3 +1,3 @@
 <h2>
-  Home PAge
+  Home Page
 </h2>

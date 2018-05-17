@@ -1,6 +1,9 @@
 <nav>
   <ul id="menu">
     <li><a href="${pageContext.request.contextPath}/">Home</a></li>
-    <li><a href="${pageContext.request.contextPath}/test">Asd</a></li>
+    <li><a href="${pageContext.request.contextPath}/activeContracts">Active Contracts</a></li>
+    <li><a href="${pageContext.request.contextPath}/allContracts">All Contracts</a></li>
+    <li><a href="${pageContext.request.contextPath}/systems">Systems</a></li>
+    <li><a href="${pageContext.request.contextPath}/about">About</a></li>
   </ul>
 </nav>
