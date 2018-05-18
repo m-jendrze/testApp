@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 @Component
 public class ContractDtoToEntity implements Mapper<ContractDto, Contract>{
 
-    private final static String DATE_FORMAT = "yyyy-MM-dd";
+    private final static String DATE_FORMAT = "dd-MM-yyyy";
 
     @Override
     public Contract convert(ContractDto from) throws ParseException {

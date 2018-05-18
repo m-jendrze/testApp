@@ -10,7 +10,7 @@ import java.text.SimpleDateFormat;
 @Component
 public class ContractEntityToDto implements Mapper<Contract, ContractDto> {
 
-    private final static String DATE_FORMAT = "yyyy-MM-dd";
+    private final static String DATE_FORMAT = "dd-MM-yyyy";
 
     @Override
     public ContractDto convert(Contract from) {

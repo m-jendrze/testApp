@@ -38,13 +38,13 @@
                     title: 'Date from',
                     width: '10%',
                     type: 'date',
-                    displayFormat: 'dd-mm-yy'
+                    displayFormat: 'yy-mm-dd'
                 },
                 toDate: {
                     title: 'Date to',
                     width: '10%',
                     type: 'date',
-                    displayFormat: 'dd-mm-yy'
+                    displayFormat: 'yy-mm-dd'
                 },
                 amount: {
                     title: 'Amount',

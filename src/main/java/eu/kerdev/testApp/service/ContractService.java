@@ -71,6 +71,7 @@ public class ContractService {
     public JTableResponse<ContractDto> updateContract(final ContractDto dto) throws ParseException {
         final Contract entity = contractDtoToEntity.convert(dto);
         entity.setSystem(itSystemDao.load(dto.getSystemId()));
+        entity.setActive(contractDao.load(entity.getId()).getActive());
         contractDao.update(entity);
         return responseBuilder.prepareUpdateResponse();
     }
