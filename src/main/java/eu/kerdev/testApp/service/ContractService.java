@@ -74,4 +74,11 @@ public class ContractService {
         contractDao.update(entity);
         return responseBuilder.prepareUpdateResponse();
     }
+
+    public JTableResponse<ContractDto> disableContract(ContractDto dto) {
+        final Contract entity = contractDao.load(dto.getId());
+        entity.setActive(false);
+        contractDao.update(entity);
+        return responseBuilder.prepareDeleteResponse();
+    }
 }

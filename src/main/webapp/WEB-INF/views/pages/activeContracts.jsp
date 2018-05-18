@@ -1,19 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <h2>
-  Hello World
+  Active contracts
 </h2>
 
-<div id="SystemTableContainer" style="width: 100%;"></div>
+<div id="ContactsAllContainer" style="width: 100%;"></div>
 <script type="text/javascript">
 
     $(document).ready(function () {
-
-        //Prepare jTable
-        $('#SystemTableContainer').jtable({
+        $('#ContactsAllContainer').jtable({
             title: 'Table of systems',
             actions: {
-                listAction: 'api/system/list',
-                createAction: 'api/system/add',
-                updateAction: 'api/system/update'
+                listAction: 'api/contract/list/active',
+                createAction: 'api/contract/add',
+                updateAction: 'api/contract/update',
+                deleteAction: 'api/contract/disable'
             },
             fields: {
                 id: {
@@ -21,21 +22,59 @@
                     create: false,
                     edit: false
                 },
-                name: {
-                    title: 'System name',
-                    width: '20%'
+                systemId: {
+                    title: 'System id',
+                    width: '10%',
+                    options: 'api/system/options'
                 },
-                description: {
-                    title: 'Description',
-                    width: '40%'
+                request: {
+                    title: 'Request number',
+                    width: '10%'
                 },
-                techs: {
-                    title: 'Technologies',
-                    width: '40%'
-                }
+                orderNumber: {
+                    title: 'Order number',
+                    width: '10%'
+                },
+                fromDate: {
+                    title: 'Date from',
+                    width: '10%',
+                    type: 'date',
+                    displayFormat: 'dd-mm-yy'
+                },
+                toDate: {
+                    title: 'Date to',
+                    width: '10%',
+                    type: 'date',
+                    displayFormat: 'dd-mm-yy'
+                },
+                amount: {
+                    title: 'Amount',
+                    width: '10%'
+                },
+                amountType: {
+                    title: 'Amount type',
+                    width: '10%',
+                    options: 'api/options/amountType'
+                },
+                amountPeriod: {
+                    title: 'Amount period',
+                    width: '10%',
+                    options: 'api/options/amountPeriod'
+                },
+                authorizationPercent: {
+                    title: 'Auth percent',
+                    width: '10%'
+                },
+                active: {
+                    title: 'Active',
+                    width: '10%',
+                    edit: false,
+                    type: 'checkbox',
+                    values: { 'false': 'Disabled', 'true': 'Active' }
+                },
             }
         });
-        $('#SystemTableContainer').jtable('load');
+        $('#ContactsAllContainer').jtable('load');
 
     });
 

@@ -56,4 +56,14 @@ public class ContractRestController {
     ) throws ParseException {
         return contractService.updateContract(dto);
     }
+
+    @RequestMapping(
+            value = "disable",
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public JTableResponse<ContractDto> disableContract(
+            ContractDto dto
+    ) throws ParseException {
+        return contractService.disableContract(dto);
+    }
 }
