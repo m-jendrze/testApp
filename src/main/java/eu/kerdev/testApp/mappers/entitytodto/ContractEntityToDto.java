@@ -7,10 +7,18 @@ import org.springframework.stereotype.Component;
 
 import java.text.SimpleDateFormat;
 
+/**
+ * Object used to map Contract object from domain object to DTO
+ *
+ * @author Michal Jendrzejek
+ * @see eu.kerdev.testApp.model.dto.ContractDto
+ * @see eu.kerdev.testApp.model.entities.app.Contract
+ * @see eu.kerdev.testApp.mappers.Mapper
+ */
 @Component
 public class ContractEntityToDto implements Mapper<Contract, ContractDto> {
 
-    private final static String DATE_FORMAT = "dd-MM-yyyy";
+    public final static String DATE_FORMAT = "yyyy-MM-dd";
 
     @Override
     public ContractDto convert(Contract from) {
@@ -23,8 +31,12 @@ public class ContractEntityToDto implements Mapper<Contract, ContractDto> {
         to.setAmountPeriod(from.getAmountPeriod());
         to.setAmountType(from.getAmountType());
         to.setAuthorizationPercent(from.getAuthorizationPercent());
-        to.setFromDate(new SimpleDateFormat(DATE_FORMAT).format(from.getFromDate()));
-        to.setToDate(new SimpleDateFormat(DATE_FORMAT).format(from.getToDate()));
+        if (from.getFromDate() != null) {
+            to.setFromDate(new SimpleDateFormat(DATE_FORMAT).format(from.getFromDate()));
+        }
+        if (from.getToDate() != null) {
+            to.setToDate(new SimpleDateFormat(DATE_FORMAT).format(from.getToDate()));
+        }
         to.setId(from.getId());
         to.setOrderNumber(from.getOrderNumber());
         to.setRequest(from.getRequest());

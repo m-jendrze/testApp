@@ -2,6 +2,10 @@ package eu.kerdev.testApp.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ * DTO used to represent options by JTable
+ * @author Michal Jendrzejek
+ */
 public class Option {
     private String displayText;
     private String value;

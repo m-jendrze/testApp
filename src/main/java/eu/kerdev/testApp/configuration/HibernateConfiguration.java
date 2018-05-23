@@ -15,6 +15,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+/**
+ * Spring annotation configuration of the Hibernate Framework
+ * Property file for configuration 'database.properties is located in the
+ * resource folder.
+ * @author Michal Jendrzejek
+ */
 @Configuration
 @EnableTransactionManagement
 @ComponentScan({ "eu.kerdev.testApp.configuration" })

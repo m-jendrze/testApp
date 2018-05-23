@@ -11,9 +11,8 @@ import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 /**
- *
+ * Spring main configuration class.
  * @author Michal Jendrzejek
- * Spring configuration class.
  */
 @Configuration
 @EnableWebMvc
@@ -28,7 +27,7 @@ public class SpringConfiguration implements WebMvcConfigurer {
     @Bean
     public TilesConfigurer tilesConfigurer(){
         TilesConfigurer tilesConfigurer = new TilesConfigurer();
-        tilesConfigurer.setDefinitions(new String[] {"/WEB-INF/views/tiles.xml"});
+        tilesConfigurer.setDefinitions("/WEB-INF/views/tiles.xml");
         tilesConfigurer.setCheckRefresh(true);
         return tilesConfigurer;
     }

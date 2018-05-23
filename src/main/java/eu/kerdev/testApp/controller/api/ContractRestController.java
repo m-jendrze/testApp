@@ -10,6 +10,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.text.ParseException;
 
+/**
+ * Controller for the REST api implementing CRUD methods for Contracts.
+ * There is no operation for delete, you can only disable contracts.
+ * Controller returns objects wrapped in a structure for JTable
+ * @see eu.kerdev.testApp.model.entities.app.Contract
+ * @author Michal Jendrzejek
+ */
 @RestController
 @RequestMapping("api/contract/")
 public class ContractRestController {

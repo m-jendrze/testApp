@@ -5,6 +5,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+/**
+ * Web controller returning paths to view pages
+ * @author Michal Jendrzejek
+ */
 @Controller
 @RequestMapping("/")
 public class AppController {

@@ -16,6 +16,10 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service for processing systems data
+ * @author Michal Jendrzejek
+ */
 @Service
 @Transactional
 public class ItSystemService {
@@ -41,6 +45,10 @@ public class ItSystemService {
         this.itSystemEntityToOptionDto = itSystemEntityToOptionDto;
     }
 
+    /**
+     * Lists all systems
+     * @return Response with list of systems
+     */
     public JTableResponse<ItSystemDto> listAllSystems() {
         List<ItSystem> entities = itSystemDao.readAll();
         List<ItSystemDto> dtos = new ArrayList<>();
@@ -50,6 +58,11 @@ public class ItSystemService {
         return responseBuilder.prepareReadResponse(dtos);
     }
 
+    /**
+     * Adds system to database
+     * @param dto system to save
+     * @return Response the added element
+     */
     public JTableResponse<ItSystemDto> addSystem(final ItSystemDto dto) {
         final ItSystem entity = itSystemDtoToEntity.convert(dto);
         entity.setId(null);
@@ -58,12 +71,21 @@ public class ItSystemService {
         return responseBuilder.prepareCreateResponse(dto);
     }
 
+    /**
+     * Updates selected system
+     * @param dto system to update
+     * @return Response with confirmation
+     */
     public JTableResponse<ItSystemDto> updateSystem(final ItSystemDto dto) {
         final ItSystem entity = itSystemDtoToEntity.convert(dto);
         itSystemDao.update(entity);
         return responseBuilder.prepareUpdateResponse();
     }
 
+    /**
+     * Returns all systems as options
+     * @return Response with list of options
+     */
     public JTableResponse listOptions() {
         List<ItSystem> entities = itSystemDao.readAll();
         List<Option> dtos = new ArrayList<>();

@@ -10,12 +10,27 @@ import javax.persistence.criteria.CriteriaQuery;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * Abstract class implementing basic CRUD methods.
+ * Application DAO objects that implement CRUD should extend
+ * this class.
+ * @param <MODEL> domain object extending BaseEntity
+ * @param <PK> primary key used by domain object
+ * @see eu.kerdev.testApp.model.entities.BaseEntity
+ * @see eu.kerdev.testApp.dao.CrudDao
+ * @author Michal Jendrzejek
+ */
 public abstract class GenericCrudDao<MODEL extends BaseEntity<PK>, PK extends Serializable>
         implements CrudDao<MODEL, PK>{
 
     protected final Class<MODEL> type;
     private final SessionFactory sessionFactory;
 
+    /**
+     * Constructor requiring to pass domain object type used by DAO
+     * @param type class of domain object
+     * @param sessionFactory session factory for transactions
+     */
     protected GenericCrudDao(Class<MODEL> type, SessionFactory sessionFactory){
         this.sessionFactory = sessionFactory;
         this.type = type;
@@ -28,6 +43,8 @@ public abstract class GenericCrudDao<MODEL extends BaseEntity<PK>, PK extends Se
     protected CriteriaBuilder getCriteriaBuilder() {
         return getSession().getCriteriaBuilder();
     }
+
+    @SuppressWarnings("unchecked")
     public PK create(MODEL entity) {
         return (PK) getSession().save(entity);
     }
@@ -56,7 +73,7 @@ public abstract class GenericCrudDao<MODEL extends BaseEntity<PK>, PK extends Se
     }
 
     public void update(MODEL entity) {
-        getSession().update(entity);
+        getSession().merge(entity);
     }
 
     public void delete(MODEL entity) {

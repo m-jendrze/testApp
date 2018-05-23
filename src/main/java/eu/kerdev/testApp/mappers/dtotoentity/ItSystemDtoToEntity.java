@@ -5,6 +5,13 @@ import eu.kerdev.testApp.model.dto.ItSystemDto;
 import eu.kerdev.testApp.mappers.Mapper;
 import org.springframework.stereotype.Component;
 
+/**
+ * Object used to map ItSystem object from DTO to domain object
+ * @see eu.kerdev.testApp.model.dto.ItSystemDto
+ * @see eu.kerdev.testApp.model.entities.app.ItSystem
+ * @see eu.kerdev.testApp.mappers.Mapper
+ * @author Michal Jendrzejek
+ */
 @Component
 public class ItSystemDtoToEntity implements Mapper<ItSystemDto, ItSystem> {
 

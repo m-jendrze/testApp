@@ -12,6 +12,13 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
+/**
+ * DAO for Contract object implementing CRUD methods
+ * @see eu.kerdev.testApp.dao.CrudDao
+ * @see eu.kerdev.testApp.dao.GenericCrudDao
+ * @see eu.kerdev.testApp.model.entities.app.Contract
+ * @author Michal Jendrzejek
+ */
 @Component
 public class ContractDao extends GenericCrudDao<Contract, Long> {
 

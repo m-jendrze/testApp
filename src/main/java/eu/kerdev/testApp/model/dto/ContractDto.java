@@ -6,6 +6,11 @@ import eu.kerdev.testApp.model.AmountType;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * DTO used to expose Contract data by controllers
+ * @see eu.kerdev.testApp.model.entities.app.Contract
+ * @author Michal Jendrzejek
+ */
 public class ContractDto {
 
     private Long id;

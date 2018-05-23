@@ -16,6 +16,10 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Service for processing contracts data
+ * @author Michal Jendrzejek
+ */
 @Service
 @Transactional
 public class ContractService {
@@ -41,6 +45,10 @@ public class ContractService {
         this.itSystemDao = itSystemDao;
     }
 
+    /**
+     * Lists all contracts
+     * @return Response with list of contracts
+     */
     public JTableResponse<ContractDto> listAllContracts() {
         List<Contract> entities = contractDao.readAll();
         List<ContractDto> dtos = new ArrayList<>();
@@ -50,6 +58,10 @@ public class ContractService {
         return responseBuilder.prepareReadResponse(dtos);
     }
 
+    /**
+     * Lists of only the active contracts
+     * @return Response with list of contracts
+     */
     public JTableResponse<ContractDto> listActiveContracts() {
         List<Contract> entities = contractDao.readActive();
         List<ContractDto> dtos = new ArrayList<>();
@@ -59,6 +71,11 @@ public class ContractService {
         return responseBuilder.prepareReadResponse(dtos);
     }
 
+    /**
+     * Adds contract to database
+     * @param dto contract to save
+     * @return Response the added element
+     */
     public JTableResponse<ContractDto> addContract(final ContractDto dto) throws ParseException {
         final Contract entity = contractDtoToEntity.convert(dto);
         entity.setSystem(itSystemDao.load(dto.getSystemId()));
@@ -68,6 +85,11 @@ public class ContractService {
         return responseBuilder.prepareCreateResponse(dto);
     }
 
+    /**
+     * Updates selected contract
+     * @param dto contract to update
+     * @return Response with confirmation
+     */
     public JTableResponse<ContractDto> updateContract(final ContractDto dto) throws ParseException {
         final Contract entity = contractDtoToEntity.convert(dto);
         entity.setSystem(itSystemDao.load(dto.getSystemId()));
@@ -76,6 +98,11 @@ public class ContractService {
         return responseBuilder.prepareUpdateResponse();
     }
 
+    /**
+     * Disabled selected contract
+     * @param dto contract to disable
+     * @return Response with confirmation
+     */
     public JTableResponse<ContractDto> disableContract(ContractDto dto) {
         final Contract entity = contractDao.load(dto.getId());
         entity.setActive(false);

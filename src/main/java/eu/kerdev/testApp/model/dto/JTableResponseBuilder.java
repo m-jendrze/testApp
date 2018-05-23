@@ -5,6 +5,11 @@ import org.springframework.stereotype.Component;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Builder preparing response messages used by JTable
+ * @see eu.kerdev.testApp.model.dto.JTableResponse
+ * @author Michal Jendrzejek
+ */
 @Component
 public class JTableResponseBuilder<T> {
 

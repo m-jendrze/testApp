@@ -1,5 +1,10 @@
 package eu.kerdev.testApp.model.dto;
 
+/**
+ * DTO used to expose ItSystem data by controllers
+ * @see eu.kerdev.testApp.model.entities.app.ItSystem
+ * @author Michal Jendrzejek
+ */
 public class ItSystemDto {
     private Long id;
     private String name;

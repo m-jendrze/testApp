@@ -10,6 +10,11 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+/**
+ * Domain object used to represent contract in application
+ * Saved in database under app.it_system
+ * @author Michal Jendrzejek
+ */
 @Entity
 @Table(name = "it_system", schema = "app")
 public class ItSystem extends BaseEntity<Long> {

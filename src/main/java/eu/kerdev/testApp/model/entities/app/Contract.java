@@ -8,6 +8,11 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * Domain object used to represent contract in application
+ * Saved in database under app.contract
+ * @author Michal Jendrzejek
+ */
 @Entity
 @Table(name = "contract", schema = "app")
 public class Contract extends BaseEntity<Long> {

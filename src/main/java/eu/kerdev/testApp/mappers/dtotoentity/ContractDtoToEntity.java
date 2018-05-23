@@ -8,10 +8,17 @@ import org.springframework.stereotype.Component;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+/**
+ * Object used to map Contract object from DTO to domain object
+ * @see eu.kerdev.testApp.model.dto.ContractDto
+ * @see eu.kerdev.testApp.model.entities.app.Contract
+ * @see eu.kerdev.testApp.mappers.Mapper
+ * @author Michal Jendrzejek
+ */
 @Component
 public class ContractDtoToEntity implements Mapper<ContractDto, Contract>{
 
-    private final static String DATE_FORMAT = "dd-MM-yyyy";
+    public final static String DATE_FORMAT = "yyyy-MM-dd";
 
     @Override
     public Contract convert(ContractDto from) throws ParseException {

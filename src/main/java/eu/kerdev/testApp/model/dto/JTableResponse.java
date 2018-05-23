@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
 
+/**
+ * DTO used to wrap response messages for JTable
+ * @author Michal Jendrzejek
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class JTableResponse<T> {
     private final ResultStatus result;

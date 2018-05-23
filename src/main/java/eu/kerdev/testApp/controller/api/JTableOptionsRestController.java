@@ -13,6 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controller for the REST api exposing data types of domain model.
+ * Controller returns response objects containing list of options
+ * possible for each enumerable data type in application.
+ * Returns objects wrapped in a structure for JTable.
+ * @author Michal Jendrzejek
+ */
 @RestController
 @RequestMapping("api/options/")
 public class JTableOptionsRestController {

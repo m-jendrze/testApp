@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Controller for the REST api implementing CRUD methods for ItSystems.
+ * There is no operation for delete.
+ * Controller returns objects wrapped in a structure for JTable
+ * @see eu.kerdev.testApp.model.entities.app.ItSystem
+ * @author Michal Jendrzejek
+ */
 @RestController
 @RequestMapping("api/system/")
 public class ItSystemRestController {
