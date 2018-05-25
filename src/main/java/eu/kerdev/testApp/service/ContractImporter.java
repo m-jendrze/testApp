@@ -19,6 +19,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+/**
+ * Object imports data from xlsx file.
+ * Expected headers for columns are defined in ContractColumnHeader enum.
+ * Import process doesn't require the columns to be in order
+ * @author Michal Jendrzejek
+ */
 @Component
 public class ContractImporter {
 
@@ -29,6 +35,13 @@ public class ContractImporter {
         this.itSystemDao = itSystemDao;
     }
 
+    /**
+     * Extracts list of contracts from file
+     * @param file data to import
+     * @return list of contracts prepared to persist to db
+     * @throws IOException throw on invalid file
+     * @throws ImportFailed throw on errors in data
+     */
     public List<Contract> importContracts(InputStream file) throws IOException, ImportFailed {
         Workbook workbook = new XSSFWorkbook(file);
         Sheet sheet = workbook.getSheetAt(0);
@@ -51,6 +64,13 @@ public class ContractImporter {
         return contractsToImport;
     }
 
+    /**
+     * Processes single row and returns extracted Contract data
+     * @param row
+     * @param headerRow list with order of columns
+     * @return Contract represented by row
+     * @throws InvalidRow
+     */
     private Contract rowToContract(Row row, List<ContractColumnHeader> headerRow) throws InvalidRow {
         final Iterator<Cell> cellIt = row.iterator();
         final Iterator<ContractColumnHeader> headerIt = headerRow.iterator();
@@ -97,6 +117,12 @@ public class ContractImporter {
         return contract;
     }
 
+    /**
+     * Extracts Boolean value from Cell
+     * @param cell
+     * @return BigDecimal
+     * @throws InvalidRow
+     */
     private Boolean getBoolean(Cell cell) throws InvalidRow {
         if (cell.getCellTypeEnum().equals(CellType.BOOLEAN)) {
             return cell.getBooleanCellValue();
@@ -111,6 +137,12 @@ public class ContractImporter {
         throw new InvalidRow();
     }
 
+    /**
+     * Loads ItSystem entity based on the name value from Cell
+     * @param cell
+     * @return ItSystem
+     * @throws InvalidRow
+     */
     private ItSystem getSystem(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case STRING:
@@ -124,6 +156,12 @@ public class ContractImporter {
         }
     }
 
+    /**
+     * Extracts BigDecimal value from Cell
+     * @param cell
+     * @return BigDecimal
+     * @throws InvalidRow
+     */
     private BigDecimal getDecimal(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case NUMERIC:
@@ -139,6 +177,12 @@ public class ContractImporter {
         }
     }
 
+    /**
+     * Extracts String value from Cell
+     * @param cell
+     * @return String
+     * @throws InvalidRow
+     */
     private String getString(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case STRING:
@@ -152,6 +196,13 @@ public class ContractImporter {
         }
     }
 
+    /**
+     * Extracts AmountType value from Cell
+     * @param cell
+     * @return AmountType
+     * @throws InvalidRow
+     * @see AmountType
+     */
     private AmountType getAmountType(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case STRING:
@@ -167,6 +218,13 @@ public class ContractImporter {
         }
     }
 
+    /**
+     * Extracts AmountPeriod value from Cell
+     * @param cell
+     * @return AmountPeriod
+     * @throws InvalidRow
+     * @see AmountPeriod
+     */
     private AmountPeriod getAmountPeriod(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case STRING:
@@ -182,6 +240,12 @@ public class ContractImporter {
         }
     }
 
+    /**
+     * Extracts Integer value from Cell
+     * @param cell
+     * @return integer
+     * @throws InvalidRow
+     */
     private Integer getInteger(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case STRING:
@@ -195,6 +259,12 @@ public class ContractImporter {
         }
     }
 
+    /**
+     * Extracts Date value from Cell
+     * @param cell
+     * @return date
+     * @throws InvalidRow
+     */
     private Date getDate(Cell cell) throws InvalidRow {
         switch(cell.getCellTypeEnum()) {
             case NUMERIC:

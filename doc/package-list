@@ -1,0 +1,14 @@
+eu.kerdev.testApp.configuration
+eu.kerdev.testApp.controller.api
+eu.kerdev.testApp.controller.web
+eu.kerdev.testApp.dao
+eu.kerdev.testApp.dao.app
+eu.kerdev.testApp.exceptions
+eu.kerdev.testApp.mappers
+eu.kerdev.testApp.mappers.dtotoentity
+eu.kerdev.testApp.mappers.entitytodto
+eu.kerdev.testApp.model
+eu.kerdev.testApp.model.dto
+eu.kerdev.testApp.model.entities
+eu.kerdev.testApp.model.entities.app
+eu.kerdev.testApp.service

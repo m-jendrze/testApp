@@ -1,7 +1,6 @@
 package eu.kerdev.testApp.dao.app;
 
 import eu.kerdev.testApp.dao.GenericCrudDao;
-import eu.kerdev.testApp.model.entities.app.Contract;
 import eu.kerdev.testApp.model.entities.app.ItSystem;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;

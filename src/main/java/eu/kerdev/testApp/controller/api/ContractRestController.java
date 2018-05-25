@@ -1,17 +1,13 @@
 package eu.kerdev.testApp.controller.api;
 
-import eu.kerdev.testApp.exceptions.ImportFailed;
 import eu.kerdev.testApp.model.dto.ContractDto;
 import eu.kerdev.testApp.model.dto.JTableResponse;
-import eu.kerdev.testApp.model.dto.ResultStatus;
 import eu.kerdev.testApp.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.text.ParseException;
 
 /**

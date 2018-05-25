@@ -6,10 +6,9 @@ import eu.kerdev.testApp.exceptions.ImportFailed;
 import eu.kerdev.testApp.mappers.dtotoentity.ContractDtoToEntity;
 import eu.kerdev.testApp.mappers.entitytodto.ContractEntityToDto;
 import eu.kerdev.testApp.model.dto.ContractDto;
-import eu.kerdev.testApp.model.dto.ResultStatus;
-import eu.kerdev.testApp.model.entities.app.Contract;
 import eu.kerdev.testApp.model.dto.JTableResponse;
 import eu.kerdev.testApp.model.dto.JTableResponseBuilder;
+import eu.kerdev.testApp.model.entities.app.Contract;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -82,6 +81,7 @@ public class ContractService {
      * Adds contract to database
      * @param dto contract to save
      * @return Response the added element
+     * @throws ParseException exception thrown by converter
      */
     public JTableResponse<ContractDto> addContract(final ContractDto dto) throws ParseException {
         final Contract entity = contractDtoToEntity.convert(dto);
@@ -104,6 +104,7 @@ public class ContractService {
      * Updates selected contract
      * @param dto contract to update
      * @return Response with confirmation
+     * @throws ParseException exception thrown by converter
      */
     public JTableResponse<ContractDto> updateContract(final ContractDto dto) throws ParseException {
         final Contract entity = contractDtoToEntity.convert(dto);

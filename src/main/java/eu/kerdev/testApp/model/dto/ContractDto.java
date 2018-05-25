@@ -4,7 +4,6 @@ import eu.kerdev.testApp.model.AmountPeriod;
 import eu.kerdev.testApp.model.AmountType;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
  * DTO used to expose Contract data by controllers

@@ -1,14 +1,14 @@
 package eu.kerdev.testApp.service;
 
 import eu.kerdev.testApp.dao.app.ItSystemDao;
+import eu.kerdev.testApp.mappers.dtotoentity.ItSystemDtoToEntity;
+import eu.kerdev.testApp.mappers.entitytodto.ItSystemEntityToDto;
 import eu.kerdev.testApp.mappers.entitytodto.ItSystemEntityToOptionDto;
-import eu.kerdev.testApp.model.dto.Option;
-import eu.kerdev.testApp.model.entities.app.ItSystem;
 import eu.kerdev.testApp.model.dto.ItSystemDto;
 import eu.kerdev.testApp.model.dto.JTableResponse;
 import eu.kerdev.testApp.model.dto.JTableResponseBuilder;
-import eu.kerdev.testApp.mappers.dtotoentity.ItSystemDtoToEntity;
-import eu.kerdev.testApp.mappers.entitytodto.ItSystemEntityToDto;
+import eu.kerdev.testApp.model.dto.Option;
+import eu.kerdev.testApp.model.entities.app.ItSystem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

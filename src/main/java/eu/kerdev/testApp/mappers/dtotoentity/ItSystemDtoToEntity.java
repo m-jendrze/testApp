@@ -1,8 +1,8 @@
 package eu.kerdev.testApp.mappers.dtotoentity;
 
-import eu.kerdev.testApp.model.entities.app.ItSystem;
-import eu.kerdev.testApp.model.dto.ItSystemDto;
 import eu.kerdev.testApp.mappers.Mapper;
+import eu.kerdev.testApp.model.dto.ItSystemDto;
+import eu.kerdev.testApp.model.entities.app.ItSystem;
 import org.springframework.stereotype.Component;
 
 /**
