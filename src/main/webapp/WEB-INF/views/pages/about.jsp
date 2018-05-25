@@ -4,4 +4,4 @@
   About
 </h2>
 
-<spann>under construction</span>
+<span>about page</span>

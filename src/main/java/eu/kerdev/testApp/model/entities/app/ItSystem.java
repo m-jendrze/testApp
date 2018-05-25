@@ -43,7 +43,7 @@ public class ItSystem extends BaseEntity<Long> {
         this.id = id;
     }
 
-    @Column(name = "name", length = 60)
+    @Column(name = "name", length = 60, unique = true)
     public String getName() {
         return name;
     }

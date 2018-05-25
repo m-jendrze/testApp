@@ -2,16 +2,20 @@ package eu.kerdev.testApp.service;
 
 import eu.kerdev.testApp.dao.app.ContractDao;
 import eu.kerdev.testApp.dao.app.ItSystemDao;
+import eu.kerdev.testApp.exceptions.ImportFailed;
 import eu.kerdev.testApp.mappers.dtotoentity.ContractDtoToEntity;
 import eu.kerdev.testApp.mappers.entitytodto.ContractEntityToDto;
 import eu.kerdev.testApp.model.dto.ContractDto;
+import eu.kerdev.testApp.model.dto.ResultStatus;
 import eu.kerdev.testApp.model.entities.app.Contract;
 import eu.kerdev.testApp.model.dto.JTableResponse;
 import eu.kerdev.testApp.model.dto.JTableResponseBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.transaction.Transactional;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +33,7 @@ public class ContractService {
     private final JTableResponseBuilder<ContractDto> responseBuilder;
     private final ContractDtoToEntity contractDtoToEntity;
     private final ContractEntityToDto contractEntityToDto;
+    private final ContractImporter contractImporter;
 
     @Autowired
     public ContractService(
@@ -36,13 +41,15 @@ public class ContractService {
             ItSystemDao itSystemDao,
             JTableResponseBuilder<ContractDto> responseBuilder,
             ContractDtoToEntity itSystemDtoToEntity,
-            ContractEntityToDto itSystemEntityToDto
+            ContractEntityToDto itSystemEntityToDto,
+            ContractImporter contractImporter
     ) {
         this.contractDao = contractDao;
         this.responseBuilder = responseBuilder;
         this.contractDtoToEntity = itSystemDtoToEntity;
         this.contractEntityToDto = itSystemEntityToDto;
         this.itSystemDao = itSystemDao;
+        this.contractImporter = contractImporter;
     }
 
     /**
@@ -83,6 +90,14 @@ public class ContractService {
         final Long id = contractDao.create(entity);
         dto.setId(id);
         return responseBuilder.prepareCreateResponse(dto);
+    }
+
+    public void importContracts(final MultipartFile file) throws IOException, ImportFailed {
+        final List<Contract> contracts =
+                contractImporter.importContracts(file.getInputStream());
+        for (Contract contract : contracts) {
+            contractDao.create(contract);
+        }
     }
 
     /**

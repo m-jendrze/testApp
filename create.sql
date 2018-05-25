@@ -1,3 +1,4 @@
+CREATE SCHEMA app;
 
 CREATE SEQUENCE app.contract_seq;
 
@@ -14,9 +15,9 @@ ALTER SEQUENCE app.it_system_seq
 CREATE TABLE app.it_system
 (
     id bigint NOT NULL DEFAULT nextval('app.it_system_seq'::regclass),
-    name character varying(60) COLLATE pg_catalog."default",
-    description character varying(120) COLLATE pg_catalog."default",
-    techs text COLLATE pg_catalog."default",
+    name character varying(60) UNIQUE,
+    description character varying(120),
+    techs text,
     CONSTRAINT pk_it_system PRIMARY KEY (id)
 )
 WITH (
@@ -30,15 +31,15 @@ ALTER TABLE app.it_system
 
 CREATE TABLE app.contract
 (
-    id bigint NOT NULL DEFAULT nextval('app.contract_seq'::regclass),
+    id bigint NOT NULL DEFAULT nextval('app.contract_seq'),
     it_system_id bigint,
-    request character varying(8) COLLATE pg_catalog."default",
-    order_number character varying(16) COLLATE pg_catalog."default",
+    request character varying(8),
+    order_number character varying(16),
     from_date date,
     to_date date,
     amount numeric(16,2),
-    amount_type character varying(8) COLLATE pg_catalog."default",
-    amount_period character varying(16) COLLATE pg_catalog."default",
+    amount_type character varying(8),
+    amount_period character varying(16),
     authorization_percent integer,
     active boolean,
     CONSTRAINT pk_contract PRIMARY KEY (id),
@@ -54,3 +55,25 @@ TABLESPACE pg_default;
 
 ALTER TABLE app.contract
     OWNER to postgres;
+
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'KUCYK', 'system description', 'system techs');
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'ŁÓDKA', 'system description', 'system techs');
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'KAPISZON', 'system description', 'system techs');
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'KOTEK', 'system description', 'system techs');
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'DEMON', 'system description', 'system techs');
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'ZÓŁWIK', 'system description', 'system techs');
+INSERT INTO app.it_system(
+	"id", "name", "description", "techs")
+	VALUES (nextval('app.it_system_seq'), 'KOJOTEK', 'system description', 'system techs');

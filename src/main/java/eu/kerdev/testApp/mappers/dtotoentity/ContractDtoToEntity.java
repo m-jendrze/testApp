@@ -26,7 +26,7 @@ public class ContractDtoToEntity implements Mapper<ContractDto, Contract>{
             return null;
         }
         final Contract to = new Contract();
-        to.setActive(from.getActive());
+        to.setActive(Boolean.TRUE.equals(from.getActive()));
         to.setAmount(from.getAmount());
         to.setAmountPeriod(from.getAmountPeriod());
         to.setAmountType(from.getAmountType());

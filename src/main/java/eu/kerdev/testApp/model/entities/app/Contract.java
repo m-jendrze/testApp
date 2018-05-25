@@ -142,4 +142,19 @@ public class Contract extends BaseEntity<Long> {
     public void setActive(Boolean active) {
         this.active = active;
     }
+
+    @Override
+    public String toString() {
+        return id + ", " +
+                (system != null ? system.getName() : "null") + ", " +
+                request + ", " +
+                orderNumber + ", " +
+                (fromDate != null ? fromDate.toString() : "null") + ", " +
+                (toDate != null ? toDate.toString() : "null") + ", " +
+                amount + ", " +
+                amountType + ", " +
+                amountPeriod + ", " +
+                authorizationPercent + ", " +
+                active + ", ";
+    }
 }

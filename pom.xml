@@ -9,7 +9,12 @@
     <packaging>war</packaging>
     <version>0.0.1</version>
     <name>TestApp</name>
-
+    <developers>
+        <developer>
+            <name>Michal Jendrzejek</name>
+            <email>michal.jendrze@gmail.com</email>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -149,10 +154,18 @@
             <artifactId>jackson-databind</artifactId>
             <version>${jackson-databind.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.0.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>2.18.3</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -186,6 +199,6 @@
 
             </plugins>
         </pluginManagement>
-        <finalName>webproject</finalName>
+        <finalName>testApp</finalName>
     </build>
 </project>

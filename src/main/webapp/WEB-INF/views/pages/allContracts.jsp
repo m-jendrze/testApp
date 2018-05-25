@@ -5,8 +5,11 @@
 </h2>
 
 <div id="ContactsAllContainer" style="width: 100%;"></div>
+<form method="POST" enctype="multipart/form-data" action="importContracts">
+    <input type="file" name="file" />
+    <input type="submit" value="Upload" />
+</form>
 <script type="text/javascript">
-
     $(document).ready(function () {
         $('#ContactsAllContainer').jtable({
             title: 'Table of systems',
